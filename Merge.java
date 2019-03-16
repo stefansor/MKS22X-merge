@@ -9,18 +9,18 @@ public class Merge{
   }
 
   public static void msh(int[] data, int lo, int hi){
-    int middle = (lo + hi) / 2;
+    int middle = (lo + hi) / 2 + 1;
     if(lo >= hi){
       return;
     }
     int[] left = new int[middle];
     int[] right = new int[hi - middle];
     int yep = 0;
-    for(int i = lo; i < middle + 1; i++){
+    for(int i = lo; i < middle; i++){
       left[i] = data[yep];
       yep++;
     }
-    for(int j = 0; j <= hi; j++){
+    for(int j = 0; j < hi - middle; j++){
       right[j] = data[yep];
       yep++;
     }
