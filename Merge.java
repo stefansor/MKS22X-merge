@@ -20,31 +20,31 @@ public class Merge{
       int j = 0;
       int yep = 0;
       int [] ans = new int[data1.length + data2.length];
-      while(i < data1.length || j < data2.length){
-        if()
-        else if(i == data1.length - 1){
+      while(yep < ans.length){
+         if(i >= data1.length ){
           ans[yep] = data2[j];
           j++;
         }
-        else if(j == data2.length - 1){
+        else if(j >= data2.length ){
           ans[yep] = data1[i];
           i++;
-        }
-        else if(data1[i] > data2[j]){
-          ans[yep] = data1[i];
-          i++;
+          System.out.println("yes");
+
         }
         else if(data1[i] < data2[j]){
-          ans[yep] = data2[j];
-          j++;
-        }
-        else if(data1[i] == data2[j]){
           ans[yep] = data1[i];
-          yep++;
-          ans[yep] = data2[j];
           i++;
+        }
+        else if(data1[i] >= data2[j]){
+          ans[yep] = data2[j];
+          System.out.println("no");
           j++;
         }
+        System.out.println(i);
+        System.out.println(j);
+        System.out.println(yep);
+        System.out.println(Arrays.toString(ans));
+
         yep++;
       }
       return ans;
@@ -60,11 +60,14 @@ public class Merge{
 
     public static void main(String[] args){
       int[] one = new int[]{
-        2,4,5
+        4,8,10
       };
       int[] two = new int[]{
-        7,4,5
+        1,3,9,11
       };
+      System.out.println(Arrays.toString(one));
+      System.out.println(Arrays.toString(two));
+
       System.out.println(Arrays.toString(merge(one, two)));
     }
 
