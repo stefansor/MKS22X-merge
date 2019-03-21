@@ -10,9 +10,11 @@ public class Merge{
 
   public static void msh(int[] data, int lo, int hi){
     int middle = (lo + hi) / 2 + 1;
-    if(lo >= hi){
+    if((hi - lo) < 20){
+      insertionsort(data, lo, hi);
       return;
     }
+
     int[] left = new int[middle];
     int[] right = new int[hi - middle + 1];
     int yep = 0;
@@ -34,7 +36,17 @@ public class Merge{
     }
   }
 
-
+  public static void insertionsort(int [] ary, int lo, int hi) {
+		for (int i = lo + 1; i <= hi; i++) {
+			for (int j = i; j > lo; j--) {
+				if (ary[j] < ary[j - 1]) {
+					int old = ary[j];
+					ary[j] = ary[j - 1];
+					ary[j - 1] = old;
+		  	}
+			}
+		}
+	}
 
 
 
@@ -75,6 +87,8 @@ public class Merge{
 
 
   public static void main(String[]args){
+
+
     System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
     int[]MAX_LIST = {1000000000,500,10};
     for(int MAX : MAX_LIST){
@@ -108,18 +122,6 @@ public class Merge{
       System.out.println();
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
